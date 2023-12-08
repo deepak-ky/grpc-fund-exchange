@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "/proto";
+
+service Transfer {
+    rpc Create (CreateRequest) returns (CreateResponse);
+}
+
+message CreateRequest {
+    string from = 1;
+    string to = 2;
+    Amount total = 3;
+}
+
+message Amount {
+    string currency = 1;
+    int64 fund_amount = 2;
+}
+
+message CreateResponse {
+    bytes pdf = 1;
+}
+
+
+
